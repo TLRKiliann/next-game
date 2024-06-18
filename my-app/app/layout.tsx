@@ -1,4 +1,8 @@
+"use client";
+
 import type { Metadata } from "next";
+import { useState } from "react";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 //import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -14,9 +18,14 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [queryClient] = useState(() => new QueryClient());
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <QueryClientProvider client={queryClient}>
+          {children}
+        </QueryClientProvider>    
+      </body>
     </html>
   );
 }
