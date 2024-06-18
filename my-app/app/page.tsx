@@ -1,7 +1,12 @@
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>Main Title</h1>
-    </main>
-  );
-}
+import TaskList from '@/app/components/TaskList';
+import TaskForm from '@/app/components/TaskForm';
+
+const Home = () => (
+  <div>
+    <TaskForm />
+    <TaskList />
+  </div>
+);
+
+export default Home;
+
